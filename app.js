@@ -1,20 +1,23 @@
-let listContainer = document.getElementById('list-container');
-let inputBox = document.getElementById('input-box');
-function addTask() {
-    if (inputBox.value === '') {
-        alert('Add your Task')
-    }
-    else {
-        let task = document.createElement('li');
-        task.textContent = inputBox.value
-        listContainer.appendChild(task)
 
-         let sapn = document.createElement('span');
-            span.textContent = '\u00d7';
-            task.appendChild(span)
-    
 
-         
-    }
-    inputBox.value = '';
+let addTask = document.getElementById('addTask');
+let task = document.getElementById('task');
+let list = document.getElementById('list');
+
+addTask.addEventListener('click', () => {
+
+    list.innerHTML += `<div class= "main"> <li>${task.value}</li> 
+           <button id = "btn" onclick ="btn(this)" >Edit</button>
+            <button id = "del" >delete</button></div>`
+
+    task.value = '';
+})
+
+function btn(element) {
+    let btn = document.getElementById("btn")
+    element.addEventListener("click", () => {
+        console.log(element.parentNode.children);
+
+    })
+
 }
